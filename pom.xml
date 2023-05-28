@@ -168,6 +168,21 @@
             <version>5.0.6</version>
         </dependency>
 
+        <!--如果属性名不同,多个PO对象合并成一个VO对象-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.3.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.5.3.Final</version>
+        </dependency>
+        <!--如果属性名不同,多个PO对象合并成一个VO对象-->
+
+
         <!-- poi -->
         <dependency>
             <groupId>org.apache.poi</groupId>
