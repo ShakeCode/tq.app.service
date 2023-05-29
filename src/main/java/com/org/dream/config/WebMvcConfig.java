@@ -1,44 +1,41 @@
 package com.org.dream.config;
 
 import com.fasterxml.classmate.util.ClassKey;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.core.type.WritableTypeId;
 import com.fasterxml.jackson.databind.BeanDescription;
 import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
 import com.fasterxml.jackson.databind.module.SimpleDeserializers;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.org.dream.config.serializer.TypeEnumDeserializer;
 import com.org.dream.enums.BaseEnum;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Configuration
-public class WebMvcConfig implements WebMvcConfigurer {
+public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        // 设置允许跨域的路由
         registry.addMapping("/**")
                 .allowedHeaders("Content-Type", "X-Request-With", "Access-Control-Request-Method", "Access-Control-Request-Headers", "token")
-                .allowedMethods("*")
-                .allowedOrigins("*")
-                /*注意当这个配置为真是我们不能将允许源设置为*而是将源路径设置为*即可*/
+                .allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS")
+                // 设置允许跨域请求的域名
+                .allowedOriginPatterns("*")
+                // 跨域允许时间
+                .maxAge(3600)
+                // 是否允许证书（cookies）
                 .allowCredentials(true);
 
     }
@@ -96,7 +93,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
             }
         });
     }*/
-
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         HttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
@@ -121,7 +117,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                     return enumDeserializer;
                 }
                 // 遍历枚举实现的接口, 查找反序列化器
-                for ( Class<?> typeInterface : type.getInterfaces()) {
+                for (Class<?> typeInterface : type.getInterfaces()) {
                     enumDeserializer = this._classMappings.get(new ClassKey(typeInterface));
                     if (enumDeserializer != null) {
                         return enumDeserializer;
@@ -150,4 +146,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
         om.registerModule(sm);
         return om;
     }
+
 }
