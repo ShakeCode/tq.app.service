@@ -53,7 +53,7 @@ public class GridController {
         return ResultVO.success();
     }
 
-    @ApiOperation(value = "新增区域")
+    @ApiOperation(value = "更新区域")
     @PostMapping("/update")
     public ResultVO<Void> updateGrid(@RequestBody GridInfo gridInfo) {
         gridService.updateById(gridInfo);
