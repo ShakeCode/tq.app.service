@@ -147,4 +147,11 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         return om;
     }
 
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // 添加防止http://127.0.0.1:12090/doc.html 找不到映射404
+        registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        super.addResourceHandlers(registry);
+    }
 }
