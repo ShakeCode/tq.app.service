@@ -11,15 +11,18 @@ import com.fasterxml.jackson.databind.module.SimpleDeserializers;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.org.dream.config.serializer.TypeEnumDeserializer;
 import com.org.dream.enums.BaseEnum;
+import com.org.dream.interceptor.AppInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -141,7 +144,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                     },
                 *//*
             }
-            
+
         });*/
         om.registerModule(sm);
         return om;
@@ -149,9 +152,30 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // 添加防止No mapping for GET /swagger-ui.html 找不到映射404
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
         // 添加防止http://127.0.0.1:12090/doc.html 找不到映射404
         registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         super.addResourceHandlers(registry);
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        List<String> urls = new ArrayList<>();
+        urls.add("/login");
+        urls.add("/favicon.ico");
+        urls.add("/error");
+        urls.add("/swagger-resources/**");
+        urls.add("/webjars/**");
+        urls.add("/v2/**");
+        urls.add("/doc.html");
+        urls.add("**/swagger-ui.html");
+        urls.add("/swagger-ui.html/**");
+        registry.addInterceptor(new AppInterceptor())
+                // 拦截所有请求，包含静态资源请求
+                .addPathPatterns("/**")
+                .excludePathPatterns(urls);
     }
 }
