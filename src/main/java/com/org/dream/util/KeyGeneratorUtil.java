@@ -3,7 +3,10 @@ package com.org.dream.util;
 import java.util.UUID;
 
 
-public class KeyGenerator {
+/**
+ * The type Key generator util.
+ */
+public class KeyGeneratorUtil {
 
     /**
      * 获得一个UUID
