@@ -27,7 +27,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping("/v1/grid")
 @RestController
-@Api(value = "区域业务相关的api", description = "区域业务相关的api")
+@Api(value = "区域业务相关的api", tags = "区域业务相关的api")
 public class GridController {
     private static final Logger LOGGER = LoggerFactory.getLogger(GridController.class);
 

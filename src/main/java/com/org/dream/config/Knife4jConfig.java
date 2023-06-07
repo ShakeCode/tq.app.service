@@ -13,7 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * 访问：http://ip:port/doc.html
+ * 访问：http://127.0.0.1:12090/doc.html
  */
 @Configuration
 @EnableSwagger2

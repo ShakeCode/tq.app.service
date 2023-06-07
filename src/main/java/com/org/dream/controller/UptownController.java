@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("/v1/uptown")
 @RequiredArgsConstructor
 @RestController
-@Api(value = "小区业务相关的api", description = "小区业务相关的api")
+@Api(value = "小区业务相关的api", tags = "小区业务相关的api")
 public class UptownController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UptownController.class);
 
