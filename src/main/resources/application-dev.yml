@@ -3,8 +3,6 @@ server:
   port: 12090
 
 spring:
-  application:
-    name: tq.app.service
   freemarker:
     # 设置模板后缀名
     suffix: .ftl
@@ -76,11 +74,11 @@ logging:
   level:
     #日志级别
     root: info
-    com.data.dao: debug
+    com.org.dream.dao: debug
   file:
     logName: app-service-log
-    max-history: 10
-    max-size: 1KB
+    config-max-history: 10
+    config-max-size: 10MB
 
 spring.main.allow-bean-definition-overriding: true
 

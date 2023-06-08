@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -27,6 +28,8 @@ tasklist | findstr 1124
 3、终止运行的程序
 taskkill /f /t  /im java.exe*/
 
+
+@EnableDiscoveryClient
 @EnableCaching
 @EnableScheduling
 @EnableAsync

@@ -35,7 +35,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .allowedHeaders("Content-Type", "X-Request-With", "Access-Control-Request-Method", "Access-Control-Request-Headers", "token")
                 .allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS")
                 // 设置允许跨域请求的域名
-                .allowedOriginPatterns("*")
+                .allowedOrigins("*")
                 // 跨域允许时间
                 .maxAge(3600)
                 // 是否允许证书（cookies）

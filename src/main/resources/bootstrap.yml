@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: tq.app.service
+  # 启动nacos-config配置文件的目标分组
+  profiles:
+    active: sit
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 127.0.0.1:8848
+        group: tq-group
+        # 租户-命名空间
+        namespace: 744a2dec-e32c-4d2e-9c7c-f51201f83aa8
+      config:
+        server-addr: 127.0.0.1:8848
+        #配置文件后缀名   dataId = application.name  +  file-extension
+        file-extension: yml
+        #配置文件的前缀，默认是application.name的值，如果配了prefix，就取prefix的值
+        #prefix: tq.app.service-${spring.profile.active}
+        # 租户-命名空间
+        namespace: 744a2dec-e32c-4d2e-9c7c-f51201f83aa8
+        #生效的配置组
+        group:  sit
+        enable-remote-sync-config: true #启用远程同步配置,
+        timeout: 3000
+        #修改后自动加载
+        refresh-enabled: true
+    refresh:
+      enabled: true
