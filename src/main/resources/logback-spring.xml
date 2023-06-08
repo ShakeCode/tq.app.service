@@ -6,8 +6,8 @@
     <!--注入application.yaml配置-->
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
     <springProperty scope="context" name="LOG_FILE_NAME" source="logging.file.logName"/>
-    <springProperty scope="context" name="LOG_MAX_HISTORY" source="logging.file.max-history"/>
-    <springProperty scope="context" name="LOG_MAX_SIZE" source="logging.file.max-size"/>
+    <springProperty scope="context" name="LOG_MAX_HISTORY" source="logging.file.config-max-history"/>
+    <springProperty scope="context" name="LOG_MAX_SIZE" source="logging.file.config-max-size"/>
 
     <!--转换规则-可删除-->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
@@ -48,9 +48,9 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${LOG_HOME}/${LOG_FILE_NAME}-%d-log%i.log</fileNamePattern>
             <!--日志文档保存天数-->
-            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <maxHistory>10</maxHistory>
             <!--单日志最大文件大小-->
-            <maxFileSize>${LOG_MAX_SIZE}</maxFileSize>
+            <maxFileSize>10MB</maxFileSize>
             <!--日志最大不超过10GB-->
             <totalSizeCap>10GB</totalSizeCap>
             <!--启动服务是否删除日志（默认false）-->
