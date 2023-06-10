@@ -1,7 +1,10 @@
 package com.org.dream.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.org.dream.constant.RedisConstant;
 import com.org.dream.domain.entity.UptownEntity;
 import com.org.dream.domain.vo.req.PageVO;
 import com.org.dream.domain.vo.req.UptownInfo;
@@ -12,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,12 +48,15 @@ public class UptownController {
         return ResultVO.success();
     }
 
+    @Cacheable(cacheNames = RedisConstant.UPTOWN_CACHE_KEY, key = "#pageVO.code")
     @ApiOperation(value = "查询小区")
     @PostMapping("/list")
     public ResultVO<PageInfo<UptownEntity>> getUptown(@RequestBody PageVO pageVO) {
+        LOGGER.info("getUptown...");
         PageHelper.startPage(pageVO.getPageIndex(), pageVO.getPageSize());
-        List<UptownEntity> list = uptownService.list();
-        PageInfo<UptownEntity> pageInfo = PageInfo.of(list);
-        return ResultVO.successData(pageInfo);
+        LambdaQueryWrapper<UptownEntity> queryWrapper = Wrappers.<UptownEntity>lambdaQuery()
+                .eq(UptownEntity::getCode, pageVO.getCode());
+        List<UptownEntity> list = uptownService.list(queryWrapper);
+        return ResultVO.successData(PageInfo.of(list));
     }
 }

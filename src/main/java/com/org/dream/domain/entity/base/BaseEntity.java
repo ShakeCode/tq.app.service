@@ -21,13 +21,13 @@ public class BaseEntity {
     public Integer id;
 
     @TableField(value = "create_date")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+0")
     public Date createDate;
 
     @TableField(value = "create_by")
     public String createBy;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+0")
     @TableField(value = "update_date")
     public Date updateDate;
 

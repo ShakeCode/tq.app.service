@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * The type Page vo.
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -13,4 +16,6 @@ public class PageVO {
     private Integer pageIndex = 1;
 
     private Integer pageSize = 10;
+
+    private String code;
 }

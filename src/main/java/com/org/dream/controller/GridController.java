@@ -3,9 +3,9 @@ package com.org.dream.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.org.dream.constant.RedisConstant;
 import com.org.dream.domain.entity.GridEntity;
 import com.org.dream.domain.enums.StatusEnum;
-import com.org.dream.domain.enums.ValidStatusEnum;
 import com.org.dream.domain.vo.req.GridInfo;
 import com.org.dream.domain.vo.req.PageVO;
 import com.org.dream.domain.vo.rsp.ResultVO;
@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,8 +38,7 @@ public class GridController {
     @PostMapping("/add")
     public ResultVO<Void> addGrid(@RequestBody GridInfo gridInfo) {
         gridService.save(gridInfo);
-
-        GridEntity gridEntity=  new GridEntity().setCode(UUID.randomUUID().toString())
+        GridEntity gridEntity = new GridEntity().setCode(UUID.randomUUID().toString())
                 .setName("测试区域")
                 // .setStatus(ValidStatusEnum.IN_VALID);
                 .setStatus(StatusEnum.IN_VALID);
@@ -70,12 +70,13 @@ public class GridController {
         return ResultVO.successData(gridService.getBaseMapper().delete(wrapper));
     }
 
+    @Cacheable(cacheNames = RedisConstant.GRID_CACHE_KEY, key = "#pageVO.code", unless = "#result == null")
     @ApiOperation(value = "查询区域")
     @PostMapping("/list")
     public ResultVO<PageInfo<GridEntity>> listGrid(@RequestBody PageVO pageVO) {
+        LOGGER.info("listGrid...");
         PageHelper.startPage(pageVO.getPageIndex(), pageVO.getPageSize());
-        // 如果配置了逻辑删除会去除isDelete的数据
-        List<GridEntity> list = gridService.list();
+        List<GridEntity> list = gridService.getBaseMapper().selectList(new LambdaQueryWrapper<GridEntity>().eq(GridEntity::getCode, pageVO.getCode()));
         PageInfo<GridEntity> pageInfo = PageInfo.of(list);
         return ResultVO.successData(pageInfo);
     }
