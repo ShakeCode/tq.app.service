@@ -33,5 +33,8 @@ spring:
           - dataId: common.yml
             group: tq-group
             refresh: true
+          - dataId: xxl-job.yml
+            group: tq-group
+            refresh: true
     refresh:
       enabled: true

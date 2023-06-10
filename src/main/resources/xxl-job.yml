@@ -1,0 +1,21 @@
+# 官方网址: https://www.xuxueli.com/xxl-job/
+# 官方网址: https://github.com/xuxueli/xxl-job
+xxl:
+  job:
+    enabled: true
+    admin:
+      #xxljob调度中心部署  例如：http://127.0.0.1:8080/xxl-job-admin
+      addresses: http://127.0.0.1:8080/xxl-job-admin
+    executor:
+      #xxljob配置的执行器名称，
+      appname: tq-app
+      #执行器IP，默认为空表示自动获取IP
+      ip:
+      #xxljob配置的端口号，默认为9999
+      port: 9999
+      #执行器运行日志文件存储磁盘路径
+      logpath: /data/xxl-job/jobhandler
+      #调度中心日志表数据保存天数，过期日志自动清理；限制大于等于7时生效，否则, 如-1，关闭自动清理功能
+      logretentiondays: 8
+    #调度中心通讯TOKEN [选填]：非空时启用 (对应xxl-job的服务端后台配置)
+    accessToken:  default_token
