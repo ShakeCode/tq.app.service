@@ -27,5 +27,11 @@ spring:
         timeout: 3000
         #修改后自动加载
         refresh-enabled: true
+        # 多微服务间共享的配置列表
+        extension-configs:
+          # 要共享的配置文件id
+          - dataId: common.yml
+            group: tq-group
+            refresh: true
     refresh:
       enabled: true
