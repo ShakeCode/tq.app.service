@@ -67,8 +67,25 @@ spring:
 
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
-
+    time-zone: GMT+0
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    # 客户端超时时间单位是毫秒
+    timeout: 60s
+    password:
+    jedis:
+      pool:
+        maxActive: 10
+        maxIdle: 10
+        minIdle: 5
+        #连接池最大等行时间 -1没有限制
+        maxWait: 60s
+        # 逐出扫描的时间间隔
+        timeBetweenEvictionRuns: 60s
 logging:
   config: classpath:logback-spring.xml
   level:
