@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * The type Swagger config.
- * 訪問地址： 
+ * 訪問地址：  http://127.0.0.1:12070/swagger-ui.html
  */
 @Configuration
 @EnableSwagger2
