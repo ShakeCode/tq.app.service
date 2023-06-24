@@ -3,7 +3,6 @@ rem 配置ssh.exe等工具的环境变量： E:\soft-install\Git\usr\bin
 
 rem win10 开启openssh, 配置环境变量： %SYSTEMROOT%\System32\OpenSSH\
 
-
 Dim WshShell
 
 Set WshShell=WScript.CreateObject("WScript.Shell")
@@ -39,6 +38,8 @@ WshShell.SendKeys "ssh " & username & "@" & host
 
 WshShell.SendKeys "{ENTER}"
 
+WScript.Sleep 1000
+
 WshShell.SendKeys password
 
 WshShell.SendKeys "{ENTER}"
@@ -48,6 +49,8 @@ WScript.Sleep 1000
 WshShell.SendKeys "ssh " & username & "@" & host
 
 WshShell.SendKeys "{ENTER}"
+
+WScript.Sleep 1000
 
 WshShell.SendKeys password
 
