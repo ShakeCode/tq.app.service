@@ -10,8 +10,10 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import com.org.dream.constant.RedisConstant;
+import com.org.dream.exception.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -35,6 +37,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -43,6 +46,16 @@ import java.util.stream.Collectors;
 @Configuration
 public class RedisCacheConfig extends CachingConfigurerSupport {
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisCacheConfig.class);
+
+    private static final Pattern HMS_PATTERN = Pattern.compile("^\\d+(?i)[hms]$", Pattern.CASE_INSENSITIVE);
+
+    private static final Pattern DAY_PATTERN = Pattern.compile("^\\d+(?i)[d]$", Pattern.CASE_INSENSITIVE);
+
+    @Value("${cache.ttl.grid:30m}")
+    private String gridCacheTtl;
+
+    @Value("${cache.ttl.uptown:20d}")
+    private String uptownCacheTtl;
 
     /**
      * Redis template redis template.
@@ -100,9 +113,9 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
                 // 缓存目录前缀-应用名称
                 .prefixCacheNameWith(RedisConstant.APP_NAME_PREFIX_KEY);
         Map<String, RedisCacheConfiguration> cacheManagerMap = new HashMap<>(2);
-        cacheManagerMap.put(RedisConstant.GRID_CACHE_KEY, config.entryTtl(Duration.ofMinutes(30)));
+        cacheManagerMap.put(RedisConstant.GRID_CACHE_KEY, config.entryTtl(getDuration(gridCacheTtl)));
         // 最終存入格式: tq-app:uptown
-        cacheManagerMap.put(RedisConstant.UPTOWN_CACHE_KEY, config.entryTtl(Duration.ofMinutes(10)));
+        cacheManagerMap.put(RedisConstant.UPTOWN_CACHE_KEY, config.entryTtl(getDuration(uptownCacheTtl)));
         return RedisCacheManager.builder(factory)
                 .cacheWriter(RedisCacheWriter.nonLockingRedisCacheWriter(factory))
                 // 缓存名称初始化
@@ -163,6 +176,36 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
             LOGGER.info("缓存key：" + format);
             return format;
         };
+    }
+
+    public static void main(String[] args) {
+        String config = "5d";
+        System.out.println("5H".matches(HMS_PATTERN.pattern()));
+        System.out.println("5h".matches(HMS_PATTERN.pattern()));
+        System.out.println("5m".matches(HMS_PATTERN.pattern()));
+        System.out.println("5M".matches(HMS_PATTERN.pattern()));
+        System.out.println("5s".matches(HMS_PATTERN.pattern()));
+        System.out.println("5S".matches(HMS_PATTERN.pattern()));
+        System.out.println("===================================");
+        System.out.println("5d".matches(DAY_PATTERN.pattern()));
+        System.out.println("5D".matches(DAY_PATTERN.pattern()));
+
+        System.out.println("===================================");
+        System.out.println(getDuration("5S").getSeconds());
+        System.out.println(getDuration("5m").getSeconds());
+        System.out.println(getDuration("5M").getSeconds());
+        System.out.println(getDuration("1d").getSeconds());
+    }
+
+    public static Duration getDuration(String config) {
+        LOGGER.info("parse duration: {}", config);
+        if (config.matches(HMS_PATTERN.pattern())) {
+            return Duration.parse("PT".concat(config));
+        } else if (config.matches(DAY_PATTERN.pattern())) {
+            return Duration.parse("P".concat(config));
+        } else {
+            throw new ServiceException("un-support ttl config");
+        }
     }
 
 }
