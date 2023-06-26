@@ -23,4 +23,8 @@ wscript.sleep 2000
 
 WshShell.run  "cmd.exe /k  E:/software/kafka/kafka_2.13-3.4.0/bin/windows/kafka-server-start.bat  E:/software/kafka/kafka_2.13-3.4.0/config//server.properties"
 
+wscript.sleep 2000
+
+WshShell.run  "cmd.exe /k  E:/software/redis/win-redis/Redis-x64-3.2.100/redis-server.exe  E:/software/redis/win-redis/Redis-x64-3.2.100/redis.windows.conf"
+
 rem wscript.quit
