@@ -9,6 +9,8 @@ import com.org.dream.domain.enums.StatusEnum;
 import com.org.dream.domain.vo.req.GridInfo;
 import com.org.dream.domain.vo.req.PageVO;
 import com.org.dream.domain.vo.rsp.ResultVO;
+import com.org.dream.exception.PermissionException;
+import com.org.dream.i18n.I18nMsgEnum;
 import com.org.dream.service.GridService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +49,7 @@ public class GridController {
         gridEntity.setCreateDate(new Date());
         gridEntity.setUpdateBy("system");
         gridEntity.setUpdateDate(new Date());
-        gridService.getBaseMapper().insert(gridEntity);
+        //  gridService.getBaseMapper().insert(gridEntity);
 
         // gridService.saveBatch(Lists.newArrayList(gridInfo));
         // gridService.getBaseMapper().insert(gridInfo);
@@ -77,6 +80,9 @@ public class GridController {
         LOGGER.info("listGrid...");
         PageHelper.startPage(pageVO.getPageIndex(), pageVO.getPageSize());
         List<GridEntity> list = gridService.getBaseMapper().selectList(new LambdaQueryWrapper<GridEntity>().eq(GridEntity::getCode, pageVO.getCode()));
+        if (CollectionUtils.isEmpty(list)) {
+            throw new PermissionException(I18nMsgEnum.NO_DATA_PERMISSION);
+        }
         PageInfo<GridEntity> pageInfo = PageInfo.of(list);
         return ResultVO.successData(pageInfo);
     }

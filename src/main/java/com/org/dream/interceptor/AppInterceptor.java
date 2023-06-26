@@ -25,6 +25,8 @@ public class AppInterceptor implements HandlerInterceptor {
         request.setAttribute("startTime", System.currentTimeMillis());
         if (StringUtils.isNotBlank(request.getHeader("token"))) {
             UserContextUtil.setHeaderInfo(new HeaderInfo());
+        } else {
+            UserContextUtil.setHeaderInfo(new HeaderInfo());
         }
         return true;
     }

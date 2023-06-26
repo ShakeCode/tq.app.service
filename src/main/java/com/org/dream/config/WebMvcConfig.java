@@ -12,10 +12,12 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.org.dream.config.serializer.TypeEnumDeserializer;
 import com.org.dream.enums.BaseEnum;
 import com.org.dream.interceptor.AppInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -25,6 +27,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Web mvc config.
+ */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
@@ -106,6 +111,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     }
 
 
+    /**
+     * Object mapper for web convert object mapper.
+     * @return the object mapper
+     */
     public ObjectMapper objectMapperForWebConvert() {
         ObjectMapper om = new ObjectMapper();
         om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -178,4 +187,14 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .addPathPatterns("/**")
                 .excludePathPatterns(urls);
     }
+
+    /**
+     * Locale resolver locale resolver.
+     * @return the locale resolver
+     */
+    @Bean
+    public LocaleResolver localeResolver() {
+        return new AppLocaleResolver();
+    }
+
 }

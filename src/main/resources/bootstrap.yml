@@ -4,6 +4,9 @@ spring:
   # 启动nacos-config配置文件的目标分组
   profiles:
     active: sit
+  messages:
+    # 国际化资源文件路径（配置文件路径）
+    basename: i18n/locate
   cloud:
     nacos:
       username: nacos

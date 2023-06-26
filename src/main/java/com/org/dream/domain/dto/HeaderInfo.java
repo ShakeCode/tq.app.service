@@ -26,5 +26,5 @@ public class HeaderInfo {
     private String gcAuthentication;
 
     @ApiModelProperty(value = "语言", example = "zh-CN,en-US")
-    private String lang;
+    private String lang = "zh-CN";
 }
