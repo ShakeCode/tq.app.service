@@ -1,5 +1,7 @@
 package com.org.dream.exception;
 
+import com.org.dream.i18n.I18nMsgEnum;
+import com.org.dream.i18n.I18nUtil;
 import lombok.Data;
 
 
@@ -48,5 +50,15 @@ public class DAServiceException extends RuntimeException {
         super(cause);
         this.message = message;
         this.code = code;
+    }
+
+    /**
+     * Instantiates a new Da service exception.
+     * @param errorMsgEnum the error msg enum
+     */
+    public DAServiceException(final I18nMsgEnum errorMsgEnum) {
+        super(I18nUtil.getMessage(errorMsgEnum));
+        this.code = errorMsgEnum.getCode();
+        this.message = I18nUtil.getMessage(errorMsgEnum);
     }
 }
