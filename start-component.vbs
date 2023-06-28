@@ -25,6 +25,18 @@ WshShell.run  "cmd.exe /k  E:/software/kafka/kafka_2.13-3.4.0/bin/windows/kafka-
 
 wscript.sleep 2000
 
-WshShell.run  "cmd.exe /k  E:/software/redis/win-redis/Redis-x64-3.2.100/redis-server.exe  E:/software/redis/win-redis/Redis-x64-3.2.100/redis.windows.conf"
+WshShell.run  "cmd.exe /k  E:/software/redis/win-redis/Redis-x64-3.2.100/redis-server.exe  E:/software/redis/win-redis/Redis-x64-3.2.100/redis.windows.conf "
+
+wscript.sleep 2000
+
+WshShell.run  "E:/soft-install/NavicatPremium12/navicat.exe"
+
+wscript.sleep 2000
+
+WshShell.run  "E:\\soft-install\\IntelliJ_IDEA_2020.2\\bin\idea64.exe"
+
+wscript.sleep 2000
+
+WshShell.run  "cmd.exe /k E:\\soft-install\\rabbitmq-3.9.13\\rabbitmq_server-3.9.13\\sbin\\rabbitmq-service.bat start"
 
 rem wscript.quit
