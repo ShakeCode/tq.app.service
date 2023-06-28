@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.org.dream.dao.GridDao">
+
+    <select id="queryMultiValueLikePermissionGrid" parameterType="java.util.List" resultType="GridEntity">
+        select
+        code,
+        name,
+        level,
+        parent_code parentCode,
+        all_parent_code as allParentCode
+        from t_grid_m
+        where all_parent_code regexp concat_ws('|',
+        <foreach collection="list" item="item" open="" close="" separator=",">
+            #{item}
+        </foreach>
+        )
+    </select>
+</mapper>

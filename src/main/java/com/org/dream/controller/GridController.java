@@ -28,6 +28,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * The type Grid controller.
+ */
 @RequiredArgsConstructor
 @RequestMapping("/v1/grid")
 @RestController
@@ -37,6 +40,11 @@ public class GridController {
 
     private final GridService gridService;
 
+    /**
+     * Add grid result vo.
+     * @param gridInfo the grid info
+     * @return the result vo
+     */
     @ApiOperation(value = "新增区域")
     @PostMapping("/add")
     public ResultVO<Void> addGrid(@RequestBody GridInfo gridInfo) {
@@ -56,6 +64,11 @@ public class GridController {
         return ResultVO.success();
     }
 
+    /**
+     * Update grid result vo.
+     * @param gridInfo the grid info
+     * @return the result vo
+     */
     @ApiOperation(value = "更新区域")
     @PostMapping("/update")
     public ResultVO<Void> updateGrid(@RequestBody GridInfo gridInfo) {
@@ -65,6 +78,11 @@ public class GridController {
         return ResultVO.success();
     }
 
+    /**
+     * Delete grid result vo.
+     * @param codeList the code list
+     * @return the result vo
+     */
     @ApiOperation(value = "删除区域")
     @PostMapping("/delete")
     public ResultVO<Integer> deleteGrid(@RequestBody List<String> codeList) {
@@ -73,6 +91,11 @@ public class GridController {
         return ResultVO.successData(gridService.getBaseMapper().delete(wrapper));
     }
 
+    /**
+     * List grid result vo.
+     * @param pageVO the page vo
+     * @return the result vo
+     */
     @Cacheable(cacheNames = RedisConstant.GRID_CACHE_KEY, key = "#pageVO.code", unless = "#result == null")
     @ApiOperation(value = "查询区域")
     @PostMapping("/list")
@@ -85,5 +108,20 @@ public class GridController {
         }
         PageInfo<GridEntity> pageInfo = PageInfo.of(list);
         return ResultVO.successData(pageInfo);
+    }
+
+    /**
+     * List permission grid result vo.
+     * @param gridCodeList the grid code list
+     * @return the result vo
+     */
+    @ApiOperation(value = "查询用户权限区域")
+    @PostMapping("/permission/list")
+    public ResultVO<List<GridEntity>> listPermissionGrid(@RequestBody List<String> gridCodeList) {
+        List<GridEntity> list = gridService.queryMultiValueLikePermissionGrid(gridCodeList);
+        if (CollectionUtils.isEmpty(list)) {
+            throw new PermissionException(I18nMsgEnum.NO_DATA_PERMISSION);
+        }
+        return ResultVO.successData(list);
     }
 }
