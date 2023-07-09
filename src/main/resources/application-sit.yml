@@ -1,6 +1,6 @@
 server:
   context-path: /app
-  port: 12090
+  port: 12070
 
 spring:
   freemarker:
@@ -63,6 +63,10 @@ spring:
           username: root
           password: root
           driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      # 关闭过滤器,影响单元测试
+      web-stat-filter:
+        enabled: false
 
 
   jackson:
@@ -155,6 +159,8 @@ logging:
     #日志级别
     root: info
     com.org.dream.dao: debug
+    #RestTemplate请求debug日志级别
+    org.springframework.web.client.RestTemplate: debug
   file:
     logName: app-service-log
     config-max-history: 10
@@ -205,3 +211,30 @@ pagehelper:
 
 #　是否启动xxl-job
 xxl.job.enabled: false
+
+http:
+  #最大连接数
+  maxTotal: 100
+  #并发数
+  defaultMaxPerRoute: 20
+  #创建连接的最长时间
+  connectTimeout: 1000
+  #从连接池中获取到连接的最长时间
+  connectionRequestTimeout: 500
+  #数据传输的最长时间
+  socketTimeout: 10000
+  #提交请求前测试连接是否可用
+  staleConnectionCheckEnabled: true
+  #可用空闲连接过期时间,重用空闲连接时会先检查是否空闲时间超过这个时间，如果超过，释放socket重新建立
+  validateAfterInactivity: 3000000
+
+# 企业微信配置
+wei-xin:
+  # 获取token地址
+  token-url: https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={0}&corpsecret={1}
+  # 发送应用消息地址
+  send-msg-url: https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={0}
+  # 企业ID
+  appId: ww27117c0555d72370
+  # 密钥
+  appSecret: dFb8Nv8GTLf74ozsakPedvWEPEaiFWIfb5mGE31xsRs
