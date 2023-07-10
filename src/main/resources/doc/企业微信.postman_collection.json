@@ -1,0 +1,643 @@
+{
+	"info": {
+		"_postman_id": "b60937b2-87a4-427e-a6e6-432b1a98391d",
+		"name": "企业微信",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ww27117c0555d72370&corpsecret=dFb8Nv8GTLf74ozsakPedvWEPEaiFWIfb5mGE31xsRs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=ww27117c0555d72370&corpsecret=dFb8Nv8GTLf74ozsakPedvWEPEaiFWIfb5mGE31xsRs",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"gettoken"
+					],
+					"query": [
+						{
+							"key": "corpid",
+							"value": "ww27117c0555d72370"
+						},
+						{
+							"key": "corpsecret",
+							"value": "dFb8Nv8GTLf74ozsakPedvWEPEaiFWIfb5mGE31xsRs"
+						}
+					]
+				},
+				"description": "获取token"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=cHQaN3JHCQ8_NL9-s1O0khPLib9DhIJK3gawVLhkdg5KbomfGbSYXb6iavFJhQkMf7SWtjZbHzIHa_A0FYw7-JfooWW7QUAJZBCOLjVHcVHLo_yf5YuvGAe2URoNy1eys361V5NYYyfY1Y1I1t3WftfmH6dwGHmklWsUn0s7Yb2GhjItlsIGFFBLf2I2bD64jWBP6VN0FgitgfcBYip0Yw",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"1822677500\",\r\n   \"msgtype\" : \"text\",\r\n   \"agentid\" : 1,\r\n   \"text\" : {\r\n       \"content\" : \"你的快递已到，请携带工卡前往邮件中心领取。\\n出发前可查看<a href=\\\"http://work.weixin.qq.com\\\">邮件中心视频实况</a>，聪明避开排队。\"\r\n   },\r\n   \"safe\":0\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=cHQaN3JHCQ8_NL9-s1O0khPLib9DhIJK3gawVLhkdg5KbomfGbSYXb6iavFJhQkMf7SWtjZbHzIHa_A0FYw7-JfooWW7QUAJZBCOLjVHcVHLo_yf5YuvGAe2URoNy1eys361V5NYYyfY1Y1I1t3WftfmH6dwGHmklWsUn0s7Yb2GhjItlsIGFFBLf2I2bD64jWBP6VN0FgitgfcBYip0Yw",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "cHQaN3JHCQ8_NL9-s1O0khPLib9DhIJK3gawVLhkdg5KbomfGbSYXb6iavFJhQkMf7SWtjZbHzIHa_A0FYw7-JfooWW7QUAJZBCOLjVHcVHLo_yf5YuvGAe2URoNy1eys361V5NYYyfY1Y1I1t3WftfmH6dwGHmklWsUn0s7Yb2GhjItlsIGFFBLf2I2bD64jWBP6VN0FgitgfcBYip0Yw"
+						}
+					]
+				},
+				"description": "发送应用消息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=cHQaN3JHCQ8_NL9-s1O0khPLib9DhIJK3gawVLhkdg5KbomfGbSYXb6iavFJhQkMf7SWtjZbHzIHa_A0FYw7-JfooWW7QUAJZBCOLjVHcVHLo_yf5YuvGAe2URoNy1eys361V5NYYyfY1Y1I1t3WftfmH6dwGHmklWsUn0s7Yb2GhjItlsIGFFBLf2I2bD64jWBP6VN0FgitgfcBYip0Yw Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"1822677500\",\r\n   \"msgtype\" : \"text\",\r\n   \"agentid\" : 1,\r\n   \"text\" : {\r\n       \"content\" : \"你的快递已到，请携带工卡前往邮件中心领取。\\n出发前可查看<a href=\\\"http://work.weixin.qq.com\\\">邮件中心视频实况</a>，聪明避开排队。\"\r\n   },\r\n   \"safe\":0\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=cHQaN3JHCQ8_NL9-s1O0khPLib9DhIJK3gawVLhkdg5KbomfGbSYXb6iavFJhQkMf7SWtjZbHzIHa_A0FYw7-JfooWW7QUAJZBCOLjVHcVHLo_yf5YuvGAe2URoNy1eys361V5NYYyfY1Y1I1t3WftfmH6dwGHmklWsUn0s7Yb2GhjItlsIGFFBLf2I2bD64jWBP6VN0FgitgfcBYip0Yw",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "cHQaN3JHCQ8_NL9-s1O0khPLib9DhIJK3gawVLhkdg5KbomfGbSYXb6iavFJhQkMf7SWtjZbHzIHa_A0FYw7-JfooWW7QUAJZBCOLjVHcVHLo_yf5YuvGAe2URoNy1eys361V5NYYyfY1Y1I1t3WftfmH6dwGHmklWsUn0s7Yb2GhjItlsIGFFBLf2I2bD64jWBP6VN0FgitgfcBYip0Yw"
+						}
+					]
+				},
+				"description": "发送应用文本消息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"touser\": \"ZhengLiJun\",\n    \"msgtype\": \"markdown\",\n    \"agentid\": 1000004,\n    \"markdown\": {\n        \"content\": \"您的会议室已经预定，稍后会同步到`邮箱`  \\n>**事项详情**  \\n>事　项：<font color=\\\"info\\\">开会</font>  \\n>组织者：@miglioguan  \\n>参与者：@miglioguan、@kunliu、@jamdeezhou、@kanexiong、@kisonwang  \\n>  \\n>会议室：<font color=\\\"info\\\">广州TIT 1楼 301</font>  \\n>日　期：<font color=\\\"warning\\\">2018年5月18日</font>  \\n>时　间：<font color=\\\"comment\\\">上午9:00-11:00</font>  \\n>  \\n>请准时参加会议。  \\n>  \\n>如需修改会议信息，请点击：[修改会议信息](https://work.weixin.qq.com)\"\n    },\n    \"enable_duplicate_check\": 0,\n    \"duplicate_check_interval\": 1800\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "markdown消息\r\n目前仅支持markdown语法的子集\r\n微工作台（原企业号）不支持展示markdown消息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"msgtype\" : \"text\",\r\n   \"agentid\" : 1000004,\r\n   \"text\" : {\r\n       \"content\" : \"你的快递已到，请携带工卡前往邮件中心领取。\\n出发前可查看<a href=\\\"http://work.weixin.qq.com\\\">邮件中心视频实况</a>，聪明避开排队。\"\r\n   },\r\n   \"safe\":0\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg&type=image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "filename",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg&type=image",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"media",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						},
+						{
+							"key": "type",
+							"value": "image"
+						}
+					]
+				},
+				"description": "上传素材图片获取消息ID"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"msgtype\" : \"image\",\r\n   \"agentid\" : 1000004,\r\n   \"image\" : {\r\n        \"media_id\" : \"3vwK4jxKTf9iRZwHzdjLkwiFjMfHuArp5nk2KgZLaqpK6No8CQMSa2bqo-Wi-8iXs\"\r\n   },\r\n   \"enable_duplicate_check\": 0,\r\n   \"duplicate_check_interval\": 1800\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "发送图片"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg&type=file",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": " multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "filename",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg&type=file",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"media",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						},
+						{
+							"key": "type",
+							"value": "file"
+						}
+					]
+				},
+				"description": "上传文件"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"msgtype\" : \"file\",\r\n   \"agentid\" : 1000004,\r\n   \"file\" : {\r\n        \"media_id\" : \"3JK8vZdeRc_ce15KxyoC91nGEQWdXfsJX7-zLRNI83yxqI3EBun-GmvmjW4GSeVVh\"\r\n   },\r\n   \"enable_duplicate_check\": 0,\r\n   \"duplicate_check_interval\": 1800\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "发送文件"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"msgtype\" : \"textcard\",\r\n   \"agentid\" : 1000004,\r\n   \"textcard\" : {\r\n            \"title\" : \"领奖通知\",\r\n            \"description\" : \"<div class=\\\"gray\\\">2016年9月26日</div> <div class=\\\"normal\\\">恭喜你抽中iPhone 7一台，领奖码：xxxx</div><div class=\\\"highlight\\\">请于2016年10月10日前联系行政同事领取</div>\",\r\n            \"url\" : \"URL\",\r\n                        \"btntxt\":\"更多\"\r\n   },\r\n   \"enable_id_trans\": 0,\r\n   \"enable_duplicate_check\": 0,\r\n   \"duplicate_check_interval\": 1800\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "发送文本卡片消息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"msgtype\" : \"news\",\r\n   \"agentid\" : 1000004,\r\n   \"news\" : {\r\n       \"articles\" : [\r\n           {\r\n               \"title\" : \"中秋节礼品领取\",\r\n               \"description\" : \"今年中秋节公司有豪礼相送\",\r\n               \"url\" : \"URL\",\r\n               \"picurl\" : \"http://res.mail.qq.com/node/ww/wwopenmng/images/independent/doc/test_pic_msg1.png\", \r\n\t\t\t   \"appid\": \"wx123123123123123\",\r\n        \t   \"pagepath\": \"pages/index?userid=zhangsan&orderid=123123123\"\r\n           }\r\n        ]\r\n   },\r\n   \"enable_id_trans\": 0,\r\n   \"enable_duplicate_check\": 0,\r\n   \"duplicate_check_interval\": 1800\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "发送图文消息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"agentid\" : 1000004,\r\n   \"msgtype\" : \"mpnews\",\r\n   \"mpnews\" : {\r\n       \"articles\":[\r\n           {\r\n               \"title\": \"Title\", \r\n               \"thumb_media_id\": \"3YUg4BVQbBncv2jrgDaSMIBf0sCsYE6GuFS-gnKUbAG_yMnHdcLSiQy52Ex-_5UqI\",\r\n               \"author\": \"Author\",\r\n               \"content_source_url\": \"URL\",\r\n               \"content\": \"Content\",\r\n               \"digest\": \"Digest description\"\r\n            }\r\n       ]\r\n   },\r\n   \"safe\":0,\r\n   \"enable_id_trans\": 0,\r\n   \"enable_duplicate_check\": 0,\r\n   \"duplicate_check_interval\": 1800\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "发送图文消息\nmpnews类型的图文消息，跟普通的图文消息一致，唯一的差异是图文内容存储在企业微信。\n多次发送mpnews，会被认为是不同的图文，阅读、点赞的统计会被分开计算。"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"agentid\" : 1000004,\r\n   \"msgtype\" : \"video\",\r\n   \"video\" : {\r\n        \"media_id\" : \"MEDIA_ID\",\r\n        \"title\" : \"Title\",\r\n       \"description\" : \"Description\"\r\n   },\r\n   \"safe\":0,\r\n   \"enable_duplicate_check\": 0,\r\n   \"duplicate_check_interval\": 1800\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "发送视频文件"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"agentid\" : 1000004,\r\n   \"msgtype\" : \"news\",\r\n   \"news\" : {\r\n       \"articles\" : [\r\n           {\r\n               \"title\" : \"中秋节礼品领取\",\r\n               \"description\" : \"今年中秋节公司有豪礼相送\",\r\n               \"url\" : \"URL\",\r\n               \"picurl\" : \"http://res.mail.qq.com/node/ww/wwopenmng/images/independent/doc/test_pic_msg1.png\", \r\n\t\t\t   \"appid\": \"wx123123123123123\",\r\n        \t   \"pagepath\": \"pages/index?userid=zhangsan&orderid=123123123\"\r\n           }\r\n        ]\r\n   },\r\n   \"enable_id_trans\": 0,\r\n   \"enable_duplicate_check\": 0,\r\n   \"duplicate_check_interval\": 1800\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "发送图文消息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"touser\" : \"ZhengLiJun\",\r\n   \"agentid\" : 1000004,\r\n    \"msgtype\" : \"template_card\",\r\n    \"template_card\" : {\r\n        \"card_type\" : \"text_notice\",\r\n        \"source\" : {\r\n            \"icon_url\": \"图片的url\",\r\n            \"desc\": \"企业微信\",\r\n            \"desc_color\": 1\r\n        },\r\n        \"action_menu\": {\r\n            \"desc\": \"卡片副交互辅助文本说明\",\r\n            \"action_list\": [\r\n                {\"text\": \"接受推送\", \"key\": \"A\"},\r\n                {\"text\": \"不再推送\", \"key\": \"B\"}\r\n            ]\r\n        },\r\n        \"task_id\": \"task_id\",\r\n        \"main_title\" : {\r\n            \"title\" : \"欢迎使用企业微信\",\r\n            \"desc\" : \"您的好友正在邀请您加入企业微信\"\r\n        },\r\n        \"quote_area\": {\r\n            \"type\": 1,\r\n            \"url\": \"https://work.weixin.qq.com\",\r\n            \"title\": \"企业微信的引用样式\",\r\n            \"quote_text\": \"企业微信真好用呀真好用\"\r\n        },\r\n        \"emphasis_content\": {\r\n            \"title\": \"100\",\r\n            \"desc\": \"核心数据\"\r\n        },\r\n        \"sub_title_text\" : \"下载企业微信还能抢红包！\",\r\n        \"horizontal_content_list\" : [\r\n            {\r\n                \"keyname\": \"邀请人\",\r\n                \"value\": \"张三\"\r\n            },\r\n            {\r\n                \"type\": 1,\r\n                \"keyname\": \"企业微信官网\",\r\n                \"value\": \"点击访问\",\r\n                \"url\": \"https://work.weixin.qq.com\"\r\n            },\r\n            {\r\n                \"type\": 2,\r\n                \"keyname\": \"企业微信下载\",\r\n                \"value\": \"企业微信.apk\",\r\n                \"media_id\": \"文件的media_id\"\r\n            },\r\n            {\r\n                \"type\": 3,\r\n                \"keyname\": \"员工信息\",\r\n                \"value\": \"点击查看\",\r\n                \"userid\": \"zhangsan\"\r\n            }\r\n        ],\r\n        \"jump_list\" : [\r\n            {\r\n                \"type\": 1,\r\n                \"title\": \"企业微信官网\",\r\n                \"url\": \"https://work.weixin.qq.com\"\r\n            },\r\n            {\r\n                \"type\": 2,\r\n                \"title\": \"跳转小程序\",\r\n                \"appid\": \"小程序的appid\",\r\n                \"pagepath\": \"/index.html\"\r\n            }\r\n        ],\r\n        \"card_action\": {\r\n            \"type\": 2,\r\n            \"url\": \"https://work.weixin.qq.com\",\r\n            \"appid\": \"小程序的appid\",\r\n            \"pagepath\": \"/index.html\"\r\n        }\r\n    },\r\n    \"enable_id_trans\": 0,\r\n    \"enable_duplicate_check\": 0,\r\n    \"duplicate_check_interval\": 1800\r\n}"
+				},
+				"url": {
+					"raw": "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg",
+					"protocol": "https",
+					"host": [
+						"qyapi",
+						"weixin",
+						"qq",
+						"com"
+					],
+					"path": [
+						"cgi-bin",
+						"message",
+						"send"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "pVn0LBzU-zNSCOhTPUocB8u_UErUh1RD4-wTc103mpwcuV19ojLsMw2YzLtmkkCxVuL99R_rImoE-Qrw8f4m8IfeS-ntWWAsB4sjro_jylHFO5jMWsZ_oIwh9ysqCW-OmZPIudCx0QMRPENnFD-L1OfpoDlbsaqBHITpPzXGttbVOG1_doEIzOfhuOzvvRPzwPxkwZVwVX1RsqezeBHYlg"
+						}
+					]
+				},
+				"description": "发送模板卡片消息"
+			},
+			"response": []
+		}
+	]
+}
